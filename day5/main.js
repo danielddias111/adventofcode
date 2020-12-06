@@ -59,5 +59,5 @@ const lines = data.split(/\r?\n/);
 
 let result = discoverSeat(lines)
 
-// correct value: 208
+// correct value: 938
 console.log('Total:', result)

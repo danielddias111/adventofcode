@@ -38,10 +38,8 @@ const countBagsCanCarryShinyGold = (bagMap) => {
     let breakAboveLoop = false
     for (const [key, value] of bagMap.entries()) {
         breakAboveLoop = false
-        console.log('Analysing color - ', key, '- with values:', value)
         for (let i = 0; i < value.length; i++) {
             if (value[i].includes('shiny gold')) {
-                console.log('This color:', key, 'has shiny gold')
                 ++counter
                 break
             }
@@ -66,7 +64,6 @@ const recursiveCount = (bagMap, colorToSearch) => {
     if (!colorToSearch.endsWith('s')) {
         colorToSearch = colorToSearch + 's'
     }
-    console.log('color to search:', colorToSearch)
     let array = bagMap.get(colorToSearch)
     if (array) {
         if (array.length > 0) {

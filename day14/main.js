@@ -36,6 +36,7 @@ const memorySum = (memory) => {
                 }
             }
             myMap.set(memoryIdx, tempValue)
+            console.log(myMap)
         }
     }
 

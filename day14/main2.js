@@ -18,7 +18,6 @@ let binaryAddress
 let bin
 let idx
 let binaryvalue
-let arrayValue = []
 const memorySum = (memory) => {
     for (let i = 0; i < memory.length; i++) {
         if (memory[i].trim() == '') {
@@ -61,16 +60,11 @@ const memorySum = (memory) => {
             }
             // get value to write in memory addresses
             for (let x = 0; x < mask.length; x++) {
-                if (binaryvalue.length > x && mask[mask.length - x - 1] == 'X') {
+                if (binaryvalue.length > x) {
                     tempValue = binaryvalue[binaryvalue.length - x - 1] + tempValue
                 }
                 else {
-                    if (mask[mask.length - x - 1] == 'X') {
-                        tempValue = '0' + tempValue
-                    }
-                    else {
-                        tempValue = mask[mask.length - x - 1] + tempValue
-                    }
+                    tempValue = '0' + tempValue
                 }
             }
             let allX = resultMask.split('X').length - 1
@@ -90,25 +84,23 @@ const memorySum = (memory) => {
                 arrayMask.push(tempMask)
             }
 
-            //arrayValue.push(tempValue)
             for (let p = 0; p < arrayMask.length; p++) {
-                myMap.set(parseInt(arrayMask[p],2), tempValue)
-                arrayValue.push(tempValue)
+                myMap.set(parseInt(arrayMask[p], 2), tempValue)
             }
-            arrayMask=[]
+            arrayMask = []
 
         }
     }
 
     let number = 0
     let count = 0
-    /*for (const [key, value] of myMap.entries()) {
+    for (const [key, value] of myMap.entries()) {
         number = parseInt(value, 2)
         count += number
-    }*/
-    for(let i=0;i<arrayValue.length;i++){
-        count+=parseInt(arrayValue[i], 2)
     }
+    /*for(let i=0;i<arrayValue.length;i++){
+        count+=parseInt(arrayValue[i], 2)
+    }*/
     return count
 }
 

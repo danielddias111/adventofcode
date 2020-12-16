@@ -77,7 +77,7 @@ const validate = (allBus, idx) => {
 
 
 
-const data = fs.readFileSync('./adventofcode/input.txt', 'UTF-8');
+const data = fs.readFileSync('./day13/input.txt', 'UTF-8');
 const lines = data.split(/\r?\n/);
 
 let result = getBus(lines)

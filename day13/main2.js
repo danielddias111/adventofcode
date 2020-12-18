@@ -1,9 +1,8 @@
 var fs = require('fs');
 
-let time = 200000000000000
+let time = 300000000000000
 let validBus = []
 let validBusOrdered = []
-let nextBus
 let maxValue = 0
 let value = 0
 let mapValue = new Map()
@@ -28,17 +27,12 @@ const getBus = (bus) => {
         }
         time++
     }
-    nextBus = validBus[0]
     while (true) {
         if (time % maxValue == 0) {
             let allValid = validate(allBus, allBus.indexOf(String(validBusOrdered[1])))
             if (allValid) {
                 return time - allBus.indexOf(String(maxValue))
             }
-        }
-
-        if(time % value  == 0){
-            console.log('One Lap: ' + time)
         }
         time += maxValue
     }
